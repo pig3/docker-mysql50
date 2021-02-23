@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mysql5.0:
+    build: .
+    image: mysql:5.0
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: usr
+      MYSQL_PASSWORD: usr
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./mysql_init:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    user: ${UID}:${GID}
+    command: [mysqld, --datadir=/var/lib/mysql]

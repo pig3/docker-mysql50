@@ -1,0 +1,4 @@
+*.org
+.env
+mysql_data/*
+!.gitkeep
